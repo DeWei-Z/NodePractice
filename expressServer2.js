@@ -1,5 +1,6 @@
 const express=require('express')
 const fs=require('fs')
+const router=require('./router')
 
 const app=express()
 
@@ -10,6 +11,8 @@ app.engine('html', require('express-art-template'));
 
 app.use(express.urlencoded({extended:false}))
 app.use(express.json())
+
+app.use(router)
 
 app.get('/',function(request,response){
 
